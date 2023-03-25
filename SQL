@@ -1,5 +1,5 @@
 # sql_test
-# Test 1.a
+# Test 1.a: Create table and insert value
 CREATE TABLE users (
   user_id int PRIMARY KEY, 
   username varchar(255));
@@ -11,7 +11,7 @@ VALUES
   (3, 'Alice Jones'),
   (4, 'Lisa Romero');
   
-# Test 1.b
+# Test 1.b: Create table and insert value
 CREATE TABLE training_details (
   user_training int PRIMARY KEY, 
   user_id int,
@@ -35,7 +35,7 @@ VALUES
   (13, 1, 1, '2015-08-02'),
   (14, 4, 3, '2015-08-03');
  
-# Test 1
+# Test 1: Query
 SELECT 
   a.user_id,
   a.username,
@@ -56,7 +56,37 @@ ORDER BY
   training_date DESC, 
   count DESC;
   
-  # Test 2
+  # Test 2: Create table and insert values
+  CREATE TABLE Student_score (
+  TestID int PRIMARY KEY, 
+  Student_Name varchar(255),
+  Test_Score int,
+  TestDate date);
+  
+  INSERT INTO Student_score (TestID, Student_Name, Test_Score, TestDate)
+VALUES
+   (1, 'Michael', 9, '2016-01-09'),
+   (2, 'Edward', 5, '2016-01-01'),
+   (3, 'Matt', 2, '2016-01-04'),
+   (4, 'Lynda', 5, '2016-01-27'),
+   (5, 'Max', 3, '2016-01-05'),
+   (6, 'Matt', 6, '2016-01-09'),
+   (7, 'Edward', 4, '2016-01-10'),
+   (8, 'Matt', 2, '2016-01-12'),
+   (9, 'Michael', 10, '2016-01-31'),
+   (10, 'Edward', 2, '2016-01-25'),
+   (11, 'Edward', 5, '2016-01-20'),
+   (12, 'Max', 6, '2016-01-04'),
+   (13, 'Matt', 3, '2016-01-09'),
+   (14, 'Lynda', 8, '2016-01-10'),
+   (15, 'Edward', 9, '2016-01-15'),
+   (16, 'Lynda', 5, '2016-01-18'),
+   (17, 'Michael', 4, '2016-01-16'),
+   (18, 'Matt', 1, '2016-01-23'),
+   (19, 'Max', 2, '2016-01-27'),
+   (20, 'Edward', 6, '2016-01-29');
+   
+   --> Query
  SELECT s.TestID, s.Student_name, s.Test_Score, s.TestDate
 FROM Student_score AS s
 JOIN (
@@ -65,3 +95,190 @@ JOIN (
     GROUP BY Student_name
 ) AS t
 ON s.Student_name = t.Student_name AND s.TestDate = t.Latest_Test_Date
+
+# Test 3: Create table and insert value
+CREATE TABLE covid_cases (
+  reported_date date,
+  location varchar(255),
+  new_cases int,
+  new_deaths int);
+  
+INSERT INTO covid_cases (reported_date, location, new_cases, new_deaths)
+VALUES
+('2022-02-01', 'Brunei', 0, 0),
+('2022-02-01', 'Cambodia', 35, 0),
+('2022-02-01', 'Indonesia', 16021, 28),
+('2022-02-01', 'Laos', 585, 4),
+('2022-02-01', 'Malaysia', 5566, 7),
+('2022-02-01', 'Philippines', 9463, 51),
+('2022-02-01', 'Singapore', 6264, 3),
+('2022-02-01', 'Thailand', 8587, 22),
+('2022-02-01', 'Timor', 159, 0),
+('2022-02-01', 'Vietnam', 11023, 0),
+('2022-02-02', 'Brunei', 215, 0),
+('2022-02-02', 'Cambodia', 48, 0),
+('2022-02-02', 'Indonesia', 17895, 25),
+('2022-02-02', 'Laos', 463, 2),
+('2022-02-02', 'Malaysia', 5736, 7),
+('2022-02-02', 'Philippines', 7633, 43),
+('2022-02-02', 'Singapore', 3101, 1),
+('2022-02-02', 'Thailand', 9172, 21),
+('2022-02-02', 'Timor', 31, 0),
+('2022-02-02', 'Vietnam', 8744, 0),
+('2022-02-03', 'Brunei', 0, 0),
+('2022-02-03', 'Cambodia', 46, 0),
+('2022-02-03', 'Indonesia', 27197, 38),
+('2022-02-03', 'Laos', 400, 5),
+('2022-02-03', 'Malaysia', 5720, 8),
+('2022-02-03', 'Philippines', 8163, 71),
+('2022-02-03', 'Singapore', 4297, 1),
+('2022-02-03', 'Thailand', 9909, 22),
+('2022-02-03', 'Timor', 41, 0),
+('2022-02-03', 'Vietnam', 8601, 286),
+('2022-02-04', 'Brunei', 200, 0),
+('2022-02-04', 'Cambodia', 66, 0),
+('2022-02-04', 'Indonesia', 32211, 42),
+('2022-02-04', 'Laos', 359, 4),
+('2022-02-04', 'Malaysia', 7234, 11),
+('2022-02-04', 'Philippines', 8541, 46),
+('2022-02-04', 'Singapore', 13208, 6),
+('2022-02-04', 'Thailand', 10490, 21),
+('2022-02-04', 'Timor', 63, 0),
+('2022-02-04', 'Vietnam', 11594, 84),
+('2022-02-05', 'Brunei', 513, 0),
+('2022-02-05', 'Cambodia', 112, 0),
+('2022-02-05', 'Indonesia', 33729, 44),
+('2022-02-05', 'Laos', 488, 3),
+('2022-02-05', 'Malaysia', 9117, 14),
+('2022-02-05', 'Philippines', 7469, 0),
+('2022-02-05', 'Singapore', 0, 0),
+('2022-02-05', 'Thailand', 10879, 20),
+('2022-02-05', 'Timor', 88, 0),
+('2022-02-05', 'Vietnam', 12170, 114),
+('2022-02-06', 'Brunei', 0, 0),
+('2022-02-06', 'Cambodia', 111, 0),
+('2022-02-06', 'Indonesia', 36057, 57),
+('2022-02-06', 'Laos', 290, 4),
+('2022-02-06', 'Malaysia', 10089, 9),
+('2022-02-06', 'Philippines', 8097, 312),
+('2022-02-06', 'Singapore', 10390, 2),
+('2022-02-06', 'Thailand', 10470, 12),
+('2022-02-06', 'Timor', 75, 0),
+('2022-02-06', 'Vietnam', 14112, 63),
+('2022-02-07', 'Brunei', 748, 0),
+('2022-02-07', 'Cambodia', 108, 0),
+('2022-02-07', 'Indonesia', 26121, 82),
+('2022-02-07', 'Laos', 282, 5),
+('2022-02-07', 'Malaysia', 11034, 9),
+('2022-02-07', 'Philippines', 6819, 12),
+('2022-02-07', 'Singapore', 15558, 6),
+('2022-02-07', 'Thailand', 10398, 17),
+('2022-02-07', 'Timor', 98, 0),
+('2022-02-07', 'Vietnam', 16815, 100),
+('2022-02-08', 'Brunei', 252, 0),
+('2022-02-08', 'Cambodia', 102, 0),
+('2022-02-08', 'Indonesia', 37492, 83),
+('2022-02-08', 'Laos', 383, 3),
+('2022-02-08', 'Malaysia', 13944, 13),
+('2022-02-08', 'Philippines', 3246, 83),
+('2022-02-08', 'Singapore', 13011, 3),
+('2022-02-08', 'Thailand', 13182, 24),
+('2022-02-08', 'Timor', 247, 0),
+('2022-02-08', 'Vietnam', 21909, 97),
+('2022-02-09', 'Brunei', 441, 0),
+('2022-02-09', 'Cambodia', 223, 0),
+('2022-02-09', 'Indonesia', 46843, 65),
+('2022-02-09', 'Laos', 454, 6),
+('2022-02-09', 'Malaysia', 17134, 9),
+('2022-02-09', 'Philippines', 3543, 69),
+('2022-02-09', 'Singapore', 10314, 4),
+('2022-02-09', 'Thailand', 14822, 20),
+('2022-02-09', 'Timor', 194, 0),
+('2022-02-09', 'Vietnam', 23956, 93),
+('2022-02-10', 'Brunei', 628, 0),
+('2022-02-10', 'Cambodia', 262, 0),
+('2022-02-10', 'Indonesia', 40618, 74),
+('2022-02-10', 'Laos', 450, 1),
+('2022-02-10', 'Malaysia', 19090, 10),
+('2022-02-10', 'Philippines', 4399, 93),
+('2022-02-10', 'Singapore', 10686, 1),
+('2022-02-10', 'Thailand', 15242, 23),
+('2022-02-10', 'Timor', 216, 0),
+('2022-02-10', 'Vietnam', 26032, 74),
+('2022-02-11', 'Brunei', 981, 0),
+('2022-02-11', 'Cambodia', 274, 0),
+('2022-02-11', 'Indonesia', 40489, 100),
+('2022-02-11', 'Laos', 424, 4),
+('2022-02-11', 'Malaysia', 20939, 24),
+('2022-02-11', 'Philippines', 3062, 71),
+('2022-02-11', 'Singapore', 9930, 3),
+('2022-02-11', 'Thailand', 16330, 25),
+('2022-02-11', 'Timor', 243, 1),
+('2022-02-11', 'Vietnam', 26487, 96),
+('2022-02-12', 'Brunei', 1125, 0),
+('2022-02-12', 'Cambodia', 300, 0),
+('2022-02-12', 'Indonesia', 55209, 107),
+('2022-02-12', 'Laos', 334, 3),
+('2022-02-12', 'Malaysia', 22802, 15),
+('2022-02-12', 'Philippines', 3731, 76),
+('2022-02-12', 'Singapore', 10505, 8),
+('2022-02-12', 'Thailand', 15882, 24),
+('2022-02-12', 'Timor', 155, 0),
+('2022-02-12', 'Vietnam', 27311, 78),
+('2022-02-13', 'Brunei', 936, 0),
+('2022-02-13', 'Cambodia', 401, 0),
+('2022-02-13', 'Indonesia', 44526, 111),
+('2022-02-13', 'Laos', 263, 3),
+('2022-02-13', 'Malaysia', 21072, 11),
+('2022-02-13', 'Philippines', 2912, 0),
+('2022-02-13', 'Singapore', 9420, 4),
+('2022-02-13', 'Thailand', 14900, 26),
+('2022-02-13', 'Timor', 75, 1),
+('2022-02-13', 'Vietnam', 26379, 84),
+('2022-02-14', 'Brunei', 1477, 0),
+('2022-02-14', 'Cambodia', 512, 0),
+('2022-02-14', 'Indonesia', 36501, 145),
+('2022-02-14', 'Laos', 216, 3),
+('2022-02-14', 'Malaysia', 24340, 24),
+('2022-02-14', 'Philippines', 2662, 164),
+('2022-02-14', 'Singapore', 9082, 9),
+('2022-02-14', 'Thailand', 14373, 27),
+('2022-02-14', 'Timor', 117, 0),
+('2022-02-14', 'Vietnam', 29413, 91),
+('2022-02-15', 'Brunei', 667, 0),
+('2022-02-15', 'Cambodia', 184, 0),
+('2022-02-15', 'Indonesia', 57049, 134),
+('2022-02-15', 'Laos', 441, 1),
+('2022-02-15', 'Malaysia', 19108, 31),
+('2022-02-15', 'Philippines', 1998, 52),
+('2022-02-15', 'Singapore', 19420, 7),
+('2022-02-15', 'Thailand', 16462, 27),
+('2022-02-15', 'Timor', 129, 0),
+('2022-02-15', 'Vietnam', 31814, 85),
+('2022-02-16', 'Brunei', 925, 0),
+('2022-02-16', 'Cambodia', 204, 0),
+('2022-02-16', 'Indonesia', 64718, 167),
+('2022-02-16', 'Laos', 345, 4),
+('2022-02-16', 'Malaysia', 27831, 21),
+('2022-02-16', 'Philippines', 2657, 77),
+('2022-02-16', 'Singapore', 16883, 13),
+('2022-02-16', 'Thailand', 17349, 22),
+('2022-02-16', 'Timor', 170, 0),
+('2022-02-16', 'Vietnam', 34737, 66);
+--> Query
+SELECT a.reported_date, a.location, a.new_cases, a.new_deaths, b.running_total_cases, b.running_total_deaths
+FROM covid_cases AS a
+JOIN (
+  SELECT location, 
+  SUM(new_cases) AS running_total_cases,
+  SUM(new_deaths) AS running_total_deaths
+  FROM covid_cases
+  WHERE reported_date <= '2022-02-16'
+  GROUP BY location
+) AS b
+ON a.location = b.location 
+WHERE a.reported_date = '2022-02-16'
+ORDER BY b.running_total_cases DESC;
+
+
+Link: https://dbfiddle.uk/XzN_ICSQ
